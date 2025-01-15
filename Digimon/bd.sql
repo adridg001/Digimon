@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-12-2024 a las 13:23:35
+-- Tiempo de generación: 14-01-2025 a las 11:23:28
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,191 +18,170 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `mvc_pdo`
+-- Base de datos: digi
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clients`
+-- Estructura de tabla para la tabla digimones
 --
 
-CREATE TABLE `clients` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `idFiscal` varchar(9) NOT NULL COMMENT 'CIF DNI ESPANYOLES',
-  `contact_name` varchar(255) NOT NULL,
-  `contact_email` varchar(255) NOT NULL,
-  `contact_phone_number` varchar(255) DEFAULT NULL,
-  `company_name` varchar(255) DEFAULT NULL,
-  `company_address` varchar(255) DEFAULT NULL,
-  `company_phone_number` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `clients`
---
-
-INSERT INTO `clients` (`id`, `idFiscal`, `contact_name`, `contact_email`, `contact_phone_number`, `company_name`, `company_address`, `company_phone_number`) VALUES
-(1, '23', 'ad', 'ads', '12', 'ads', 'sad', NULL),
-(2, '34', 'prueba', 'prueba', '123', 'prubea', 'calle', NULL),
-(3, '12', 'sad', 'sad', '123', 'sad', 'fdf', '665');
+CREATE TABLE digimones (
+  id int(11) NOT NULL,
+  nombre varchar(255) NOT NULL,
+  imagen varchar(255) NOT NULL,
+  ataque int(11) NOT NULL,
+  defensa int(11) NOT NULL,
+  nivel int(11) NOT NULL DEFAULT 1,
+  evo_id int(11) NOT NULL,
+  tipo int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `projects`
+-- Estructura de tabla para la tabla digimones_inv
 --
 
-CREATE TABLE `projects` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  `deadline` date DEFAULT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'Abierto',
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL COMMENT 'JEFE DE PROYECTO',
-  `client_id` bigint(20) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `projects`
---
-
-INSERT INTO `projects` (`id`, `name`, `description`, `deadline`, `status`, `user_id`, `client_id`) VALUES
-(1, 'Proyecto Prueba', 'Muchas cosas', '2023-11-11', 'Abierto', 1, NULL),
-(2, 'Proyecto Prueba2 ', 'Demasiado trabajo', '2024-01-11', 'Abierto', 1, NULL);
+CREATE TABLE digimones_inv (
+  id int(11) NOT NULL,
+  usuario_id int(11) NOT NULL,
+  digimon_id int(11) NOT NULL,
+  seleccionado tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tasks`
+-- Estructura de tabla para la tabla equipo
 --
 
-CREATE TABLE `tasks` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  `deadline` date DEFAULT NULL,
-  `task_status` varchar(255) NOT NULL DEFAULT 'Abierto',
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL COMMENT 'RESPONSABLE DE TAREA',
-  `client_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `project_id` bigint(20) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE equipo (
+  id int(11) NOT NULL,
+  usuario_id int(11) NOT NULL,
+  digimon_id int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Estructura de tabla para la tabla usuarios
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `usuario` varchar(100) NOT NULL COMMENT 'Para el login equivalente a nick'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE usuarios (
+  id int(11) NOT NULL,
+  nombre varchar(255) NOT NULL,
+  pfp varchar(255) DEFAULT NULL,
+  partidas_ganadas int(11) NOT NULL DEFAULT 0,
+  partidas_perdidas int(11) NOT NULL DEFAULT 0,
+  partidas_totales int(11) NOT NULL DEFAULT 0,
+  permisos tinyint(1) NOT NULL DEFAULT 0,
+  contrasenya varchar(255) NOT NULL,
+  digi_evu int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Volcado de datos para la tabla usuarios
 --
 
-/*INSERT INTO `users` (`id`, `name`, `email`, `password`, `usuario`) VALUES
-(1, 'Ana Lopez', 'ana@gmail.com', 'ana', 'ana'),
-(2, 'Luis Perez', 'luis@gmail.com', 'luis', 'luis'),
-(4, 'Maria Lopez', 'maria@gmail.com', 'maria', 'maria'),
-(11, 'Admin Mola', 'admin@gmail.com', 'admin', 'admin');*/
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `usuario`) VALUES
-(1, 'Ana Lopez', 'ana@gmail.com', '$2y$10$w4HeBV2bvsRvlRG7Om0vweL6UZvGRtfjw0NAT0b2M/Hfu45HSvWge' ,'ana'),
-(2, 'Luis Perez', 'luis@gmail.com', '$2y$10$NhMucZgqKKRQheq7RlToA.RCddDONxmyFBHOwQRUY6qYtXKs1co0W' ,'luis'),
-(4, 'Maria Lopez', 'maria@gmail.com', '$2y$10$gbZfp2YBoxyJT9cG4vBmueG1OYWxXk5Z5x7W06BhWR6uPeXjmKIF2' ,'maria'),
-(11, 'Admin Mola', 'admin@gmail.com', '$2y$10$dIBvy.QseqFNzP7GErgSF.P7coKdx/onIiO4QNiiLnbwYyPMxOUFm' ,'admin');
+INSERT INTO usuarios (id, nombre, pfp, partidas_ganadas, partidas_perdidas, partidas_totales, permisos, contrasenya, digi_evu) VALUES
+(1, 'admin', NULL, 0, 0, 0, 1, '$2y$10$dIBvy.QseqFNzP7GErgSF.P7coKdx/onIiO4QNiiLnbwYyPMxOUFm', 0),
+(2, 'ana', NULL, 0, 0, 0, 0, '$2y$10$w4HeBV2bvsRvlRG7Om0vweL6UZvGRtfjw0NAT0b2M/Hfu45HSvWge', 0);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `clients`
+-- Indices de la tabla digimones
 --
-ALTER TABLE `clients`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `clients_contact_email_unique` (`contact_email`),
-  ADD UNIQUE KEY `users_cif_dni` (`idFiscal`);
+ALTER TABLE digimones
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY nombre (nombre),
+  ADD KEY digi_tipo (tipo),
+  ADD KEY evo_id (evo_id);
 
 --
--- Indices de la tabla `projects`
+-- Indices de la tabla digimones_inv
 --
-ALTER TABLE `projects`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `projects_client_id_foreign` (`client_id`) USING BTREE,
-  ADD KEY `projects_user_id_foreign` (`user_id`) USING BTREE;
+ALTER TABLE digimones_inv
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY usuario_id (usuario_id),
+  ADD UNIQUE KEY digimon_id (digimon_id),
+  ADD KEY digi_usuario (usuario_id),
+  ADD KEY digi_digimon (digimon_id);
 
 --
--- Indices de la tabla `tasks`
+-- Indices de la tabla equipo
 --
-ALTER TABLE `tasks`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `tasks_client_id_foreign` (`client_id`) USING BTREE,
-  ADD KEY `tasks_project_id_foreign` (`project_id`) USING BTREE,
-  ADD KEY `tasks_user_id_foreign` (`user_id`) USING BTREE;
+ALTER TABLE equipo
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY usuario_id (usuario_id),
+  ADD UNIQUE KEY digimon_id (digimon_id),
+  ADD KEY equipo_usuario (usuario_id),
+  ADD KEY equipo_digimon (digimon_id);
 
 --
--- Indices de la tabla `users`
+-- Indices de la tabla usuarios
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD UNIQUE KEY `users_UN` (`usuario`);
+ALTER TABLE usuarios
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY nombre (nombre);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `clients`
+-- AUTO_INCREMENT de la tabla digimones
 --
-ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE digimones
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `projects`
+-- AUTO_INCREMENT de la tabla digimones_inv
 --
-ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE digimones_inv
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tasks`
+-- AUTO_INCREMENT de la tabla equipo
 --
-ALTER TABLE `tasks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE equipo
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT de la tabla usuarios
 --
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE usuarios
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `projects`
+-- Filtros para la tabla digimones
 --
-ALTER TABLE `projects`
-  ADD CONSTRAINT `projects_FK` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `projects_FK_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+ALTER TABLE digimones
+  ADD CONSTRAINT evolucion FOREIGN KEY (evo_id) REFERENCES digimones (id) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `tasks`
+-- Filtros para la tabla digimones_inv
 --
-ALTER TABLE `tasks`
-  ADD CONSTRAINT `tasks_FK` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `tasks_FK_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `tasks_FK_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+ALTER TABLE digimones_inv
+  ADD CONSTRAINT digi_digimon FOREIGN KEY (digimon_id) REFERENCES digimones (id) ON UPDATE CASCADE,
+  ADD CONSTRAINT digi_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla equipo
+--
+ALTER TABLE equipo
+  ADD CONSTRAINT equipo_digimon FOREIGN KEY (digimon_id) REFERENCES digimones_inv (id) ON UPDATE CASCADE,
+  ADD CONSTRAINT equipo_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -77,7 +77,7 @@ CREATE TABLE usuarios (
   partidas_perdidas int(11) NOT NULL DEFAULT 0,
   partidas_totales int(11) NOT NULL DEFAULT 0,
   permisos tinyint(1) NOT NULL DEFAULT 0,
-  contrasenya varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
   digi_evu int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -85,7 +85,7 @@ CREATE TABLE usuarios (
 -- Volcado de datos para la tabla usuarios
 --
 
-INSERT INTO usuarios (id, nombre, pfp, partidas_ganadas, partidas_perdidas, partidas_totales, permisos, contrasenya, digi_evu) VALUES
+INSERT INTO usuarios (id, nombre, pfp, partidas_ganadas, partidas_perdidas, partidas_totales, permisos, password, digi_evu) VALUES
 (1, 'admin', NULL, 0, 0, 0, 1, '$2y$10$dIBvy.QseqFNzP7GErgSF.P7coKdx/onIiO4QNiiLnbwYyPMxOUFm', 0),
 (2, 'ana', NULL, 0, 0, 0, 0, '$2y$10$w4HeBV2bvsRvlRG7Om0vweL6UZvGRtfjw0NAT0b2M/Hfu45HSvWge', 0);
 

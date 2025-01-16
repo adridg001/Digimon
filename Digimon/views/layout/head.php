@@ -20,7 +20,7 @@
     </button>
     <div class="navbar-nav">
       <div class="nav-item text-nowrap">
-        <a class="nav-link px-3 disabled" href=""> Usuario Conectado: <?= $_SESSION["usuario"]->usuario . " Nombre: " . $_SESSION["usuario"]->name . " " ?></a>
+        <a class="nav-link px-3 disabled" href=""> Usuario Conectado: <?= $_SESSION["usuario"]->nombre . " Nombre: " . $_SESSION["usuario"]->nombre . " " ?></a>
       </div>
     </div>
     <div class="navbar-nav">

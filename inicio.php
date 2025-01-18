@@ -15,6 +15,7 @@
       foreach ($variables as $key => $value) {
         echo password_hash($value, PASSWORD_DEFAULT) ."<br>";
       }*/
-    ?>
-  </div>
+      
+    ?>  
+    </div>
 </main>

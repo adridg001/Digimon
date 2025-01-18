@@ -4,18 +4,35 @@
   </div>
   <div id="contenido">
     CONTENIDO DE INICIO
-    <?php
-      /*$variables = [
-        "ana", 
-        "luis",
-        "maria",
-        "admin",
-      ];
-
-      foreach ($variables as $key => $value) {
-        echo password_hash($value, PASSWORD_DEFAULT) ."<br>";
-      }*/
-      
-    ?>  
-    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Acción</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><button class="btn btn-primary" onclick="location.href='listarUsuarios.php'">Listar Usuarios</button></td>
+          <td>Ver la lista de todos los usuarios</td>
+        </tr>
+        <tr>
+          <td><button class="btn btn-primary" onclick="location.href='verUsuario.php'">Ver Usuario</button></td>
+          <td>Ver detalles de un usuario específico</td>
+        </tr>
+        <tr>
+          <td><button class="btn btn-primary" onclick="location.href='altaDigimon.php'">Dar de alta un Digimon</button></td>
+          <td>Registrar un nuevo Digimon</td>
+        </tr>
+        <tr>
+          <td><button class="btn btn-primary" onclick="location.href='definirEvoluciones.php'">Definir Evoluciones</button></td>
+          <td>Definir las evoluciones de los Digimones</td>
+        </tr>
+        <tr>
+          <td><button class="btn btn-primary" onclick="location.href='verDigimones.php'">Ver Digimones</button></td>
+          <td>Ver la lista de todos los Digimones</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </main>

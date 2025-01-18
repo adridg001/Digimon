@@ -1,7 +1,7 @@
 <?php
 ob_start();
-require_once "config/sessionControl.php";
-require_once ("router/router.php");
+require_once "Digimon/config/sessionControl.php";
+require_once ("Digimon/router/router.php");
 
 require_once ("views/layout/head.php");
 $vista=router ();
@@ -9,7 +9,7 @@ $vista=router ();
 if (!file_exists($vista)) "Error, REVISA TUS RUTAS";
 else require_once ($vista);
 
-require_once ("views/layout/footer.php");
+require_once ("Digimon/views/layout/footer.php");
 
 $vista = router();
 ?>

@@ -1,5 +1,5 @@
 <?php
-require_once 'config/db.php'; // Asegúrate de que este archivo contiene la conexión a la base de datos
+require_once 'config/db.php'; // Conexión a la base de datos
 
 $mensaje = '';
 
@@ -18,6 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         try {
             $conexion = db::conexion();
+            
+            // Inserción del Digimon en la base de datos
             $sql = "INSERT INTO digimones (nombre, ataque, defensa, tipo, nivel, imagen) VALUES (:nombre, :ataque, :defensa, :tipo, :nivel, :imagen)";
             $stmt = $conexion->prepare($sql);
             $stmt->bindParam(':nombre', $nombre);
@@ -28,13 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':imagen', $imagen['name']);
             $stmt->execute();
 
+            // Obtener el ID del Digimon recién creado
+            $id = $conexion->lastInsertId();
+
             // Crear la carpeta para el Digimon
             $carpeta = 'digimones/' . $nombre;
             if (!file_exists($carpeta)) {
                 mkdir($carpeta, 0777, true);
             }
 
-            // Mover la imagen a la carpeta del Digimon
+            // Mover las imágenes a la carpeta del Digimon
             $rutaImagen = $carpeta . '/' . $imagen['name'];
             move_uploaded_file($imagen['tmp_name'], $rutaImagen);
 
@@ -43,7 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $rutaImagenDerrota = $carpeta . '/' . $imagenDerrota['name'];
             move_uploaded_file($imagenDerrota['tmp_name'], $rutaImagenDerrota);
-            $mensaje = 'Digimon registrado exitosamente.';
+
+            // Redirigir a la página verDigimon.php con el ID del Digimon recién creado
+            header("Location: verDigimon.php?id=$id");
+            exit();
+
         } catch (PDOException $error) {
             $mensaje = 'Error: ' . $error->getMessage();
         }

@@ -15,14 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         try {
             $conexion = db::conexion();
-            $sql = "INSERT INTO digimones (nombre, ataque, defensa, tipo, nivel, foto) VALUES (:nombre, :ataque, :defensa, :tipo, :nivel, :foto)";
+            $sql = "INSERT INTO digimones (nombre, ataque, defensa, tipo, nivel) VALUES (:nombre, :ataque, :defensa, :tipo, :nivel)";
             $stmt = $conexion->prepare($sql);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':ataque', $ataque);
             $stmt->bindParam(':defensa', $defensa);
             $stmt->bindParam(':tipo', $tipo);
             $stmt->bindParam(':nivel', $nivel);
-            $stmt->bindParam(':foto', $foto);
             $stmt->execute();
 
             // Crear la carpeta para el Digimon

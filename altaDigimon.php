@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             move_uploaded_file($imagenDerrota['tmp_name'], $rutaImagenDerrota);
 
             // Redirigir a la página verDigimon.php con el ID del Digimon recién creado
-            header("Location: verDigimon.php?id=$id");
+            header("Location: datosDigimon.php?id=$id");
             exit();
 
         } catch (PDOException $error) {

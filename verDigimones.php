@@ -66,9 +66,7 @@ try {
                             <td><?php echo htmlspecialchars($digimon['evo_id']); ?></td>
                             <td><img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen']); ?>" alt="<?php echo htmlspecialchars($digimon['nombre']); ?>" width="50"></td>
                             <td>
-                                <a href="modificarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-warning btn-sm">Modificar</a>
-                                <a href="eliminarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este Digimon?');">Eliminar</a>
-                                <a href="definirEvolucion.php?id=<?php echo $digimon['id']; ?>" class="btn btn-info btn-sm">Definir Evolución</a>
+                            <a href="datosDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-primary btn-sm">Ver Digimon</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

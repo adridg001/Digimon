@@ -39,7 +39,7 @@ try {
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Ver Digimon</h1>
+        <h1>Información Digimon</h1>
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Nombre: <?php echo htmlspecialchars($digimon['nombre']); ?></h5>

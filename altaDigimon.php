@@ -78,7 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="mb-3">
                 <label for="nivel" class="form-label">Nivel</label>
                 <select class="form-control" id="nivel" name="nivel" required>
-                    <option value="1">1: Bebe</option>
+                    <option valu
+                    e="1">1: Bebe</option>
                     <option value="2">2: Infantil</option>
                     <option value="3">3: Adulto</option>
                     <option value="4">4: Perfecto</option>

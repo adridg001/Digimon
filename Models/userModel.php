@@ -13,14 +13,14 @@ class UserModel
     public function insert(array $user):?int //devuelve entero o null
     { 
         try {
-        $sql="INSERT INTO usuarios(usuario, password, name, email)  VALUES (?, ?, ?, ?);"; //inyección posicional
+        $sql="INSERT INTO usuarios(usuario, password, name, email)  VALUES (:usuario, :password, :name, :email);"; //inyección posicional
        
         $sentencia = $this->conexion->prepare($sql);
         $arrayDatos=[
-                $user["usuario"],
-                $user["password"],
-                $user["name"],
-                $user["email"],
+               ":usuario"=>$user["usuario"],
+                ":password"=>password_hash($user["password"],PASSWORD_DEFAULT),
+                ":name"=>$user["name"],
+                ":email"=>$user["email"],
         ];
         $resultado = $sentencia->execute($arrayDatos);
       

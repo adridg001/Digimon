@@ -15,13 +15,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         try {
             $conexion = db::conexion();
-            $sql = "INSERT INTO digimones (nombre, ataque, defensa, tipo, nivel) VALUES (:nombre, :ataque, :defensa, :tipo, :nivel)";
+            $sql = "INSERT INTO digimones (nombre, ataque, defensa, tipo, nivel, foto) VALUES (:nombre, :ataque, :defensa, :tipo, :nivel, :foto)";
             $stmt = $conexion->prepare($sql);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':ataque', $ataque);
             $stmt->bindParam(':defensa', $defensa);
             $stmt->bindParam(':tipo', $tipo);
             $stmt->bindParam(':nivel', $nivel);
+            $stmt->bindParam(':foto', $foto);
             $stmt->execute();
 
             // Crear la carpeta para el Digimon
@@ -58,7 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
             <div class="mb-3">
-                <label for="foto" class="form-label">Foto</label>
+                <label for="foto" class="form-label">Foto Digimon</label>
+                <input type="file" class="form-control" id="foto" name="foto" required>
+            </div>
+            <div class="mb-3">
+                <label for="foto" class="form-label">Foto Digimon Victoria</label>
+                <input type="file" class="form-control" id="foto" name="foto" required>
+            </div>
+            <div class="mb-3">
+                <label for="foto" class="form-label">Foto Digimon Derrota</label>
                 <input type="file" class="form-control" id="foto" name="foto" required>
             </div>
             <div class="mb-3">

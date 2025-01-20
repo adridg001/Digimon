@@ -25,10 +25,6 @@
           <td>Registrar un nuevo Digimon</td>
         </tr>
         <tr>
-          <td><button class="btn btn-primary" onclick="location.href='definirEvoluciones.php'">Definir Evoluciones</button></td>
-          <td>Definir las evoluciones de los Digimones</td>
-        </tr>
-        <tr>
           <td><button class="btn btn-primary" onclick="location.href='verDigimones.php'">Ver Digimones</button></td>
           <td>Ver la lista de todos los Digimones</td>
         </tr>

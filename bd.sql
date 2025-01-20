@@ -46,6 +46,8 @@ CREATE TABLE `digimones` (
   `evo_id` int(11) NOT NULL,
   `tipo` int(11) NOT NULL
   `imagen` varchar(255) NOT NULL,
+  `imagen_victoria` varchar(255) NOT NULL,
+  `imagen_derrota` varchar(255) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `digimones_inv` (

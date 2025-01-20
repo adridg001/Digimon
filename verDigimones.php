@@ -52,6 +52,7 @@ try {
                             <td>
                                 <a href="modificarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-warning btn-sm">Modificar</a>
                                 <a href="eliminarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este Digimon?');">Eliminar</a>
+                                <a href="definirEvolucion.php?id=<?php echo $digimon['id']; ?>" class="btn btn-info btn-sm">Definir Evolución</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

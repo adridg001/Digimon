@@ -118,9 +118,9 @@ public function search (string $usuario, string $campo, string $orden):array{
     return $users; 
     }
     public function login(string $usuario,string $password): ?stdClass {
-        $sentencia = $this->conexion->prepare("SELECT * FROM usuarios WHERE nick=:nick");
+        $sentencia = $this->conexion->prepare("SELECT * FROM usuarios WHERE nombre=:nombre");
         $arrayDatos = [
-            ":nick" => $usuario,
+            ":nombre" => $usuario,
         ];
         $resultado = $sentencia->execute($arrayDatos);
         if (!$resultado) return null;

@@ -130,6 +130,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="file" class="form-control" id="imagen_derrota" name="imagen_derrota" required>
             </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
+            <br>
+            <a href="index.php" class="btn btn-primary mt-3">Volver a Inicio</a>
         </form>
     </div>
 </body>

@@ -86,6 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
         </form>
+        <a href="index.php" class="btn btn-primary mt-3">Volver a Inicio</a>
     </div>
 </body>
 </html>

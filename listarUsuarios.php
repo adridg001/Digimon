@@ -51,6 +51,7 @@ try {
                 <?php endif; ?>
             </tbody>
         </table>
+        <a href="index.php" class="btn btn-primary mt-3">Volver a Inicio</a>
     </div>
 </body>
 </html>

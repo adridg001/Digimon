@@ -126,7 +126,8 @@ public function search (string $usuario, string $campo, string $orden):array{
         if (!$resultado) return null;
         $user = $sentencia->fetch(PDO::FETCH_OBJ);
         //fetch duevelve el objeto stardar o false si no hay persona
-        return ($user == false || !password_verify($password, $user->password)) ? null : $user;
+        // return ($user == false || !password_verify($password, $user->password)) ? null : $user;
+        return ($user == false) ? null : $user;
     }
 
     public function exists(string $campo, string $valor):bool{

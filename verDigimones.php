@@ -22,14 +22,14 @@ try {
     <style>
         body{
             background-image: url('fondo_VerDigimones.webp');
-            background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-            background-position: center; /* Centra la imagen */
-            background-repeat: no-repeat; /* Evita que la imagen se repita */
-            height: 100vh; /* Asegura que el cuerpo tenga la altura completa */
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            height: 100vh;
             margin: 0;
         }
         .container{
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco translúcido para mejor legibilidad */
+            background-color: rgba(255, 255, 255, 0.8); 
             border-radius: 15px;
             padding: 20px;
             margin-top: 10px;

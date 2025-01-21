@@ -49,10 +49,16 @@ try {
                     <strong>Tipo:</strong> <?php echo htmlspecialchars($digimon['tipo']); ?><br>
                     <strong>Nivel:</strong> <?php echo htmlspecialchars($digimon['nivel']); ?><br>
                 </p>
+<<<<<<< HEAD
                 <img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen']); ?>" alt="Imagen del Digimon" style="max-width: 100%; height: auto;">
                 <img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen_victoria']); ?>" alt="Imagen del Digimon" style="max-width: 100%; height: auto;">
                 <img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen_derrota']); ?>" alt="Imagen del Digimon" style="max-width: 100%; height: auto;">
 
+=======
+                <img src="digimones/<?= htmlspecialchars($digimon['nombre']); ?>/perfil.jpg" alt="Imagen del Digimon" style="max-width: 100%; height: auto;">
+                <img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/victoria.jpg" alt="Imagen de Victoria del Digimon" style="max-width: 100%; height: auto;">
+                <img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/derrota.jpg" alt="Imagen de Derrota del Digimon" style="max-width: 100%; height: auto;">
+>>>>>>> 08fc20adbe48ff6ddb3e1af1bb06016cebe24bab
                 <div class="mt-3">
                     <a href="modificarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-warning">Modificar</a>
                     <a href="eliminarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-danger">Borrar</a>

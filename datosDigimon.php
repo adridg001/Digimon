@@ -52,8 +52,8 @@ try {
                 <img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen']); ?>" alt="Imagen del Digimon" style="max-width: 100%; height: auto;">
                 <div class="mt-3">
                     <a href="modificarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-warning">Modificar</a>
-                    <a href="borrarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-danger">Borrar</a>
-                    <a href="definirEvoluciones.php?id=<?php echo $digimon['id']; ?>" class="btn btn-primary">Definir Evoluciones</a>
+                    <a href="eliminarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-danger">Borrar</a>
+                    <a href="definirEvolucion.php?id=<?php echo $digimon['id']; ?>" class="btn btn-primary">Definir Evoluciones</a>
                     <a href="altaDigimon.php" class="btn btn-secondary">Registrar Otro Digimon</a>
                     <a href="index.php" class="btn btn-light">Inicio</a>
                 </div>

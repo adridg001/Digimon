@@ -40,13 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // Mover las imágenes a la carpeta del Digimon
-            $rutaImagen = $carpeta . '/' . $imagen['name'];
+            $rutaImagen = $carpeta . '/perfil.jpg';
             move_uploaded_file($imagen['tmp_name'], $rutaImagen);
 
-            $rutaImagenVictoria = $carpeta . '/' . $imagenVictoria['name'];
+            $rutaImagenVictoria = $carpeta . '/victoria.jpg';
             move_uploaded_file($imagenVictoria['tmp_name'], $rutaImagenVictoria);
 
-            $rutaImagenDerrota = $carpeta . '/' . $imagenDerrota['name'];
+            $rutaImagenDerrota = $carpeta . '/derrota.jpg';
             move_uploaded_file($imagenDerrota['tmp_name'], $rutaImagenDerrota);
 
             // Redirigir a la página verDigimon.php con el ID del Digimon recién creado

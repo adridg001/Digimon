@@ -9,30 +9,42 @@ class UserModel
     {
         $this->conexion = db::conexion();
     }
-   
-    public function insert(array $user):?int //devuelve entero o null
+        public function insert(array $user): ?int {
+            try {
+                $sql = "INSERT INTO usuarios (nombre, password) VALUES (:nombre, :password);";
+                $sentencia = $this->conexion->prepare($sql);
+                $arrayDatos = [
+                    ":nombre" => $user["nombre"],
+                    ":password" => password_hash($user["password"], PASSWORD_DEFAULT)
+                ];
+                $resultado = $sentencia->execute($arrayDatos);
+                return ($resultado == true) ? $this->conexion->lastInsertId() : null;
+            } catch (Exception $e) {
+                echo 'Excepción capturada: ', $e->getMessage(), "<br>";
+                return null;
+            }
+        }
+   /* public function insert(array $user):?int //devuelve entero o null
     { 
         try {
-        $sql="INSERT INTO usuarios(usuario, password, name, email)  VALUES (:usuario, :password, :name, :email);"; //inyección posicional
+        $sql="INSERT INTO usuarios(nombre, password)  VALUES (:nombre, :password);"; //inyección posicional
        
         $sentencia = $this->conexion->prepare($sql);
         $arrayDatos=[
-               ":usuario"=>$user["usuario"],
+               ":nombre"=>$user["nombre"],
                 ":password"=>password_hash($user["password"],PASSWORD_DEFAULT),
-                ":name"=>$user["name"],
-                ":email"=>$user["email"],
         ];
         $resultado = $sentencia->execute($arrayDatos);
       
         /*Pasar en el mismo orden de los ? execute devuelve un booleano. 
-        True en caso de que todo vaya bien, falso en caso contrario.*/
+        True en caso de que todo vaya bien, falso en caso contrario.
         //Así podriamos evaluar
          return ($resultado==true)?$this->conexion->lastInsertId():null ;
         } catch (Exception $e) {
             echo 'Excepción capturada: ',  $e->getMessage(), "<bR>";
             return false;
         }
-    }
+    }*/
        
 
     public function read(int $id): ?stdClass

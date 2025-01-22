@@ -31,6 +31,7 @@ try {
                     <th>Partidas Ganadas</th>
                     <th>Partidas Perdidas</th>
                     <th>Partidas Totales</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,11 +43,14 @@ try {
                             <td><?php echo htmlspecialchars($usuario['partidas_ganadas']); ?></td>
                             <td><?php echo htmlspecialchars($usuario['partidas_perdidas']); ?></td>
                             <td><?php echo htmlspecialchars($usuario['partidas_totales']); ?></td>
+                            <td>
+                                <a href="verUsuario.php?id=<?php echo $usuario['id']; ?>" class="btn btn-primary btn-sm">Ver Usuario</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="5">No se encontraron usuarios.</td>
+                        <td colspan="6">No se encontraron usuarios.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>

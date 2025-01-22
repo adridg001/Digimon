@@ -64,7 +64,7 @@ try {
                             <td><?php echo htmlspecialchars($digimon['nivel']); ?></td>
                             <td><?php echo htmlspecialchars($digimon['tipo']); ?></td>
                             <td><?php echo htmlspecialchars($digimon['evo_id']); ?></td>
-                            <td><img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen']); ?>" alt="<?php echo htmlspecialchars($digimon['nombre']); ?>" width="50"></td>
+                            <td><img src="digimones/<?= htmlspecialchars($digimon['nombre']); ?>/perfil.jpg" alt="Imagen del Digimon" width="80";></td>
                             <td>
                             <a href="datosDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-primary btn-sm">Ver Digimon</a>
                             </td>

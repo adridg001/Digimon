@@ -1,5 +1,5 @@
 <?php
-require_once 'config/db.php'; // Asegúrate de que este archivo contiene la conexión a la base de datos
+require_once 'config/db.php'; 
 
 if (!isset($_GET['id'])) {
     echo "No se proporcionó el ID del Digimon.";

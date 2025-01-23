@@ -3,7 +3,7 @@ require_once 'config/db.php'; // Asegúrate de que este archivo contiene la cone
 
 try {
     $conexion = db::conexion();
-    $sql = "SELECT id, nombre, ataque, defensa, nivel, tipo, evo_id, imagen FROM digimones";
+    $sql = "SELECT id, nombre, ataque, defensa, nivel, tipo, evo_id, imagen, imagen_victoria, imagen_derrota  FROM digimones";
     $stmt = $conexion->prepare($sql);
     $stmt->execute();
     $digimones = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -64,7 +64,7 @@ try {
                             <td><?php echo htmlspecialchars($digimon['nivel']); ?></td>
                             <td><?php echo htmlspecialchars($digimon['tipo']); ?></td>
                             <td><?php echo htmlspecialchars($digimon['evo_id']); ?></td>
-                            <td><img src="digimones/<?= htmlspecialchars($digimon['nombre']); ?>/perfil.jpg" alt="Imagen del Digimon" width="80";></td>
+                            <td><img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen']); ?>" alt="<?php echo htmlspecialchars($digimon['nombre']); ?>" width="50"></td>
                             <td>
                             <a href="datosDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-primary btn-sm">Ver Digimon</a>
                             </td>

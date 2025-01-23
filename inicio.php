@@ -13,19 +13,19 @@
       </thead>
       <tbody>
         <tr>
-          <td><button class="btn btn-primary" onclick="location.href='listarUsuarios.php'">Listar Usuarios</button></td>
+          <td><button class="btn btn-primary" onclick="location.href='/Digimon/views/user/list.php'">Listar Usuarios</button></td>
           <td>Ver la lista de todos los usuarios</td>
         </tr>
         <tr>
-          <td><button class="btn btn-primary" onclick="location.href='altaUsuario.php'">Dar de alta un Usuario</button></td>
+          <td><button class="btn btn-primary" onclick="location.href='/Digimon/views/user/create.php'">Dar de alta un Usuario</button></td>
           <td>Dar de alta a un usuario</td>
         </tr>
         <tr>
-          <td><button class="btn btn-primary" onclick="location.href='altaDigimon.php'">Dar de alta un Digimon</button></td>
+          <td><button class="btn btn-primary" onclick="location.href='/Digimon/views/digimon/create.php'">Dar de alta un Digimon</button></td>
           <td>Registrar un nuevo Digimon</td>
         </tr>
         <tr>
-          <td><button class="btn btn-primary" onclick="location.href='verDigimones.php'">Ver Digimones</button></td>
+          <td><button class="btn btn-primary" onclick="location.href='/Digimon/views/digimon/show.php'">Ver Digimones</button></td>
           <td>Ver la lista de todos los Digimones</td>
         </tr>
       </tbody>

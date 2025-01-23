@@ -53,8 +53,8 @@ if (isset($_GET['id'])) {
             <p><strong>Partidas Perdidas:</strong> <?php echo htmlspecialchars($usuario['partidas_perdidas']); ?></p>
             <p><strong>Partidas Totales:</strong> <?php echo htmlspecialchars($usuario['partidas_ganadas'] + $usuario['partidas_perdidas']); ?></p>
             <div class="d-flex gap-2 mt-3">
-                <a href="eliminarUsuario.php?id=<?php echo $usuario['id']; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</a>
-                <a href="listarUsuarios.php" class="btn btn-primary">Volver a Lista de Usuarios</a>
+                <a href="/Digimon/views/user/delete.php?id=<?php echo $usuario['id']; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</a>
+                <a href="/Digimon/views/user/list.php" class="btn btn-primary">Volver a Lista de Usuarios</a>
             </div>
         <?php else: ?>
             <p>No se encontró información del usuario.</p>

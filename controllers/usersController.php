@@ -1,5 +1,5 @@
 <?php
-require_once "models/userModel.php";
+require_once __DIR__ . '/../models/userModel.php'; // Ajusta la ruta según la estructura de tu proyecto
 
 class UsersController { 
     private $model;
@@ -24,28 +24,12 @@ class UsersController {
    }
 
    public function borrar(int $id ): void
-{   $usuario= $this->ver($id);
-    $borrado = $this->model->delete($id);
-    $redireccion = "location:index.php?accion=listar&tabla=user&evento=borrar&id={$id}&usuario={$usuario->usuario}&name={$usuario->name}";
-    
-    if ($borrado == false) $redireccion .=  "&error=true";
-    header($redireccion);
-    exit();
-}
-
-public function editar (int $id, array $arrayUser):void {
-    $usuario= $this->ver($id);
-    $editadoCorrectamente=$this->model->edit ($id, $arrayUser);
-    //lo separo para que se lea mejor en el word
-    $redireccion="location:index.php?tabla=user&accion=editar";
-    $redireccion.="&evento=modificar&id={$id}&usuario={$usuario->usuario}&name={$usuario->name}";
-    $redireccion.=($editadoCorrectamente==false)?"&error=true":"";
-    //vuelvo a la pagina donde estaba
-    header ($redireccion);
-    exit();
-    }
-
-    public function buscar (string $usuario, string $campo, string $orden):array {
-        return $this->model->search ($usuario, $campo, $orden);
-    }
+   {   
+       $usuario= $this->ver($id);
+       $borrado = $this->model->delete($id);
+       $mensaje = $borrado ? 'Usuario eliminado exitosamente.' : 'Error al eliminar el usuario.';
+       $redireccion = "location:/Digimon/views/user/list.php?mensaje=" . urlencode($mensaje);
+       header($redireccion);
+       exit();
+   }
 }

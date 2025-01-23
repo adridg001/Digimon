@@ -1,64 +1,64 @@
 <?php
-require_once "controllers/usersController.php";
+require_once '../../config/db.php'; // Ajusta la ruta según la estructura de tu proyecto
 
-$controlador = new UsersController();
-$users = $controlador->listar();
-$visibilidad = "hidden";
-if (isset($_REQUEST["evento"]) && $_REQUEST["evento"] == "borrar") {
-    $visibilidad = "visibility";
-    $clase = "alert alert-success";
-    //Mejorar y poner el nombre/usuario
-    $mensaje = "El usuario con id: {$_REQUEST['id']}, usuario: {$_REQUEST['usuario']} y nombre: {$_REQUEST['nombre']}. Borrado correctamente";
-    if (isset($_REQUEST["error"])) {
-        $clase = "alert alert-danger ";
-        $mensaje = "ERROR!!! No se ha podido borrar el usuario con id: {$_REQUEST['id']}";
-    }
+try {
+    $conexion = db::conexion();
+    $sql = "SELECT id, nombre, partidas_ganadas, partidas_perdidas, (partidas_ganadas + partidas_perdidas) AS partidas_totales FROM usuarios";
+    $stmt = $conexion->prepare($sql);
+    $stmt->execute();
+    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $error) {
+    echo "Error: " . $error->getMessage();
 }
 ?>
-?>
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h3">Listar usuario</h1>
-    </div>
-    <div id="contenido">
-        <div class="<?= $clase ?>" <?= $visibilidad ?> role="alert">
-            <?= $mensaje ?>
-        </div>
-        <?php
-        if (count($users) <= 0) :
-            echo "No hay Datos a Mostrar";
-        else : ?>
-            <table class="table table-light table-hover">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Eliminar</th>
-                        <th scope="col">Editar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($users as $user) :
-                        $id = $user->id;
-                        $nombre = $user->usuario;
-                    ?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Usuarios</title>
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Lista de Usuarios</h1>
+        <?php if (isset($_GET['mensaje'])): ?>
+            <div class="alert alert-info"><?php echo htmlspecialchars($_GET['mensaje']); ?></div>
+        <?php endif; ?>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Partidas Ganadas</th>
+                    <th>Partidas Perdidas</th>
+                    <th>Partidas Totales</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($usuarios && $stmt->rowCount() > 0): ?>
+                    <?php foreach ($usuarios as $usuario): ?>
                         <tr>
-                            <th scope="row"><?= $user->id ?></th>
-                            <td><?= $user->usuario ?></td>
-                            <td><?= $user->name ?></td>
-                            <td><?= $user->email ?></td>
-                            <td><a class="btn btn-danger" href="index.php?tabla=user&accion=borrar&id=<?= $id ?>&nombre=<?= $nombre ?>"><i class="fa fa-trash"></i> Borrar</a></td>
-                            <td><a class="btn btn-success" href="index.php?tabla=user&accion=editar&id=<?= $id ?>"><i class="fas fa-pencil-alt"></i> Editar</a></td>
+                            <td><?php echo htmlspecialchars($usuario['id']); ?></td>
+                            <td><?php echo htmlspecialchars($usuario['nombre']); ?></td>
+                            <td><?php echo htmlspecialchars($usuario['partidas_ganadas']); ?></td>
+                            <td><?php echo htmlspecialchars($usuario['partidas_perdidas']); ?></td>
+                            <td><?php echo htmlspecialchars($usuario['partidas_totales']); ?></td>
+                            <td>
+                                <a href="/Digimon/views/user/show.php?id=<?php echo $usuario['id']; ?>" class="btn btn-primary btn-sm">Ver Usuario</a>
+                            </td>
                         </tr>
-                    <?php
-                    endforeach;
-                    ?>
-                </tbody>
-            </table>
-        <?php
-        endif;
-        ?>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="6">No se encontraron usuarios.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <a href="../../index.php" class="btn btn-primary mt-3">Volver a Inicio</a>
     </div>
-</main>
+</body>
+</html>

@@ -49,9 +49,9 @@ try {
                     <strong>Tipo:</strong> <?php echo htmlspecialchars($digimon['tipo']); ?><br>
                     <strong>Nivel:</strong> <?php echo htmlspecialchars($digimon['nivel']); ?><br>
                 </p>
-                <img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen']); ?>" alt="Imagen del Digimon" style="max-width: 100%; height: auto;">
-                <img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen_victoria']); ?>" alt="Imagen del Digimon" style="max-width: 100%; height: auto;">
-                <img src="digimones/<?php echo htmlspecialchars($digimon['nombre']); ?>/<?php echo htmlspecialchars($digimon['imagen_derrota']); ?>" alt="Imagen del Digimon" style="max-width: 100%; height: auto;">
+                <img src="digimones/<?= htmlspecialchars($digimon['nombre']); ?>/perfil.jpg" alt="Imagen del Digimon" width="80";>
+                <img src="digimones/<?= htmlspecialchars($digimon['nombre']); ?>/victoria.jpg" alt="Imagen del Digimon" width="80";>
+                <img src="digimones/<?= htmlspecialchars($digimon['nombre']); ?>/derrota.jpg" alt="Imagen del Digimon" width="80";>
 
                 <div class="mt-3">
                     <a href="modificarDigimon.php?id=<?php echo $digimon['id']; ?>" class="btn btn-warning">Modificar</a>

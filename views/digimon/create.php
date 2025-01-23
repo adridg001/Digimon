@@ -1,5 +1,5 @@
 <?php
-require_once 'config/db.php'; // Conexión a la base de datos
+require_once '../../config/db.php'; // Ajusta la ruta según la estructura de tu proyecto
 
 $mensaje = '';
 
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imagenVictoria = $_FILES['imagen_victoria'];
     $imagenDerrota = $_FILES['imagen_derrota'];
 
-    if (empty($nombre) || empty($ataque) || empty($defensa) || empty($tipo) || empty($nivel) || empty($imagen['name'])||empty($imagenVictoria['name'])||empty($imagenDerrota['name'])) {
+    if (empty($nombre) || empty($ataque) || empty($defensa) || empty($tipo) || empty($nivel) || empty($imagen['name']) || empty($imagenVictoria['name']) || empty($imagenDerrota['name'])) {
         $mensaje = 'Todos los campos son obligatorios.';
     } else {
         try {
@@ -32,27 +32,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':imagen_derrota', $imagenDerrota['name']);
             $stmt->execute();
 
-            // Obtener el ID del Digimon recién creado
-            $id = $conexion->lastInsertId();
-
-            // Crear la carpeta para el Digimon
-            $carpeta = 'digimones/' . $nombre;
+            // Mover las imágenes a la carpeta del Digimon
+            $carpeta = '../../digimones/' . $nombre;
             if (!file_exists($carpeta)) {
                 mkdir($carpeta, 0777, true);
             }
+            move_uploaded_file($imagen['tmp_name'], $carpeta . '/' . $imagen['name']);
+            move_uploaded_file($imagenVictoria['tmp_name'], $carpeta . '/' . $imagenVictoria['name']);
+            move_uploaded_file($imagenDerrota['tmp_name'], $carpeta . '/' . $imagenDerrota['name']);
 
-            // Mover las imágenes a la carpeta del Digimon
-            $rutaImagen = $carpeta . '/perfil.jpg';
-            move_uploaded_file($imagen['tmp_name'], $rutaImagen);
-
-            $rutaImagenVictoria = $carpeta . '/victoria.jpg';
-            move_uploaded_file($imagenVictoria['tmp_name'], $rutaImagenVictoria);
-
-            $rutaImagenDerrota = $carpeta . '/derrota.jpg';
-            move_uploaded_file($imagenDerrota['tmp_name'], $rutaImagenDerrota);
-
-            // Redirigir a la página verDigimon.php con el ID del Digimon recién creado
-            header("Location: datosDigimon.php?id=$id");
+            // Redirigir a la página de lista de Digimones con un mensaje de éxito
+            $mensaje = "Digimon creado exitosamente.";
+            header("Location: show.php?mensaje=" . urlencode($mensaje));
             exit();
 
         } catch (PDOException $error) {
@@ -68,10 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alta Digimon</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
     <style>
     body {
-        background-image: url('fondo_CrearDigimones.jpg');
+        background-image: url('../../fondo_CrearDigimones.jpg');
         background-size: 100% 100%; 
         background-position: center; 
         background-repeat: no-repeat; 
@@ -88,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         margin: 10px auto; 
         max-width: 1200px;
     }
-</style>
+    </style>
 </head>
 <body>
     <div class="container">
@@ -96,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if (!empty($mensaje)): ?>
             <div class="alert alert-info"><?php echo htmlspecialchars($mensaje); ?></div>
         <?php endif; ?>
-        <form method="post" action="altaDigimon.php" enctype="multipart/form-data">
+        <form method="post" action="create.php" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -129,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
             </div>
             <div class="mb-3">
-                <label for="imagen" class="form-label">Imagen</label>
+                <label for="imagen" class="form-label">Imagen Principal</label>
                 <input type="file" class="form-control" id="imagen" name="imagen" required>
             </div>
             <div class="mb-3">
@@ -141,9 +132,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="file" class="form-control" id="imagen_derrota" name="imagen_derrota" required>
             </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
-            <br>
-            <a href="index.php" class="btn btn-primary mt-3">Volver a Inicio</a>
         </form>
+        <a href="../../index.php" class="btn btn-primary mt-3">Volver a Inicio</a>
     </div>
 </body>
 </html>

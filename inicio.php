@@ -21,10 +21,6 @@
           <td>Dar de alta a un usuario</td>
         </tr>
         <tr>
-          <td><button class="btn btn-primary" onclick="location.href='verUsuario.php'">Ver Usuario</button></td>
-          <td>Ver detalles de un usuario específico</td>
-        </tr>
-        <tr>
           <td><button class="btn btn-primary" onclick="location.href='altaDigimon.php'">Dar de alta un Digimon</button></td>
           <td>Registrar un nuevo Digimon</td>
         </tr>

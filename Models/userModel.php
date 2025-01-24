@@ -26,6 +26,26 @@ class UserModel
         }
     }
 
+    public function login(string $username, string $password): ?stdClass {
+        try {
+            $sql = "SELECT * FROM usuarios WHERE nombre = :nombre";
+            $sentencia = $this->conexion->prepare($sql);
+            $sentencia->bindParam(':nombre', $username, PDO::PARAM_STR);
+            $sentencia->execute();
+            $usuario = $sentencia->fetch(PDO::FETCH_OBJ);
+
+            // Verificar si el usuario existe
+            if ($usuario && password_verify($password, $usuario->password)) {
+                return $usuario; // Devuelve el usuario si todo es correcto
+            }
+
+            return null; // Si no coincide la contraseña o el usuario no existe
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ', $e->getMessage(), "<br>";
+            return null;
+        }
+    }
+
     public function delete(int $id): bool {
         try {
             $sql = "DELETE FROM usuarios WHERE id = :id";

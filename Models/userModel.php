@@ -24,34 +24,8 @@ class UserModel
                 return null;
             }
         }
-<<<<<<< HEAD
    /* public function insert(array $user):?int //devuelve entero o null
     { 
-=======
-    }
-
-    public function login(string $username, string $password): ?stdClass {
-        try {
-            $sql = "SELECT * FROM usuarios WHERE nombre = :nombre";
-            $sentencia = $this->conexion->prepare($sql);
-            $sentencia->bindParam(':nombre', $username, PDO::PARAM_STR);
-            $sentencia->execute();
-            $usuario = $sentencia->fetch(PDO::FETCH_OBJ);
-
-            // Verificar si el usuario existe
-            if ($usuario && password_verify($password, $usuario->password)) {
-                return $usuario; // Devuelve el usuario si todo es correcto
-            }
-
-            return null; // Si no coincide la contraseña o el usuario no existe
-        } catch (Exception $e) {
-            echo 'Excepción capturada: ', $e->getMessage(), "<br>";
-            return null;
-        }
-    }
-
-    public function delete(int $id): bool {
->>>>>>> c7404d0b6d27d89adbf98ada8d0c2c5291a89778
         try {
         $sql="INSERT INTO usuarios(nombre, password)  VALUES (:nombre, :password);"; //inyección posicional
        

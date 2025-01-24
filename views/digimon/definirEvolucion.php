@@ -20,10 +20,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $mensaje = 'ID de Digimon no proporcionado o no válido.';
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST["id"])) {
     $id = $_POST['id'];
     $evo_id = $_POST['evo_id'];
-
+  
     if (empty($id) || empty($evo_id)) {
         $mensaje = 'Todos los campos son obligatorios.';
     } else {
@@ -36,8 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute();
 
             $mensaje = 'Evolución definida exitosamente.';
-            header("Location: definirEvolucion.php?id=" . $id . "&mensaje=" . urlencode($mensaje));
-            exit();
+
         } catch (PDOException $error) {
             $mensaje = 'Error: ' . $error->getMessage();
         }
@@ -58,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1 class="mt-5">Definir Evolución</h1>
         <?php if (!empty($mensaje)): ?>
             <div class="alert alert-info"><?= $mensaje ?></div>
-            <a href="/Digimon/views/digimon/verDigimones.php" class="btn btn-primary">Volver a la lista de Digimones</a>
+            <a href="/Digimon/views/digimon/show.php" class="btn btn-primary">Volver a la lista de Digimones</a>
         <?php endif; ?>
         <?php if ($digimon): ?>
             <div class="mb-3">

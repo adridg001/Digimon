@@ -21,7 +21,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-image: url('../../fondo_VerUsuario.jpg');
+            background-image: url('fondo_VerUsuario.jpg');
             background-size: cover;
             background-position: center; 
             background-repeat: no-repeat; 

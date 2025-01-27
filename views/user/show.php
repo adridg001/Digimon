@@ -46,8 +46,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <p><strong>Partidas Perdidas:</strong> <?php echo htmlspecialchars($usuario->partidas_perdidas); ?></p>
             <p><strong>Partidas Totales:</strong> <?php echo htmlspecialchars($usuario->partidas_ganadas + $usuario->partidas_perdidas); ?></p>
             <div class="d-flex gap-2 mt-3">
-                <a href="delete.php?id=<?php echo $usuario->id; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</a>
-                <a href="list.php" class="btn btn-primary">Volver a Lista de Usuarios</a>
+                <a href="/Digimon/Administracion/views/user/delete.php?id=<?php echo $usuario->id; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</a>
+                <a href="/Digimon/Administracion/views/user/list.php" class="btn btn-primary">Volver a Lista de Usuarios</a>
             </div>
         <?php else: ?>
             <p>No se encontró información del usuario.</p>

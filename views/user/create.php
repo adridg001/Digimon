@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 $mensaje = 'Error al registrar el usuario.';
             }
-            header("Location: /digimon/views/user/list.php?mensaje=" . urlencode($mensaje));
+            header("Location: /Digimon/Administracion/views/user/list.php?mensaje=" . urlencode($mensaje));
             exit();
 
         } catch (Exception $error) {

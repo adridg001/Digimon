@@ -47,7 +47,7 @@ try {
                             <td><?php echo htmlspecialchars($usuario['partidas_perdidas']); ?></td>
                             <td><?php echo htmlspecialchars($usuario['partidas_totales']); ?></td>
                             <td>
-                                <a href="/Digimon/views/user/show.php?id=<?php echo $usuario['id']; ?>" class="btn btn-primary btn-sm">Ver Usuario</a>
+                                <a href="/Digimon/Administracion/views/user/show.php?id=<?php echo $usuario['id']; ?>" class="btn btn-primary btn-sm">Ver Usuario</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

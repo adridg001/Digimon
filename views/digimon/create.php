@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirigir a la página de lista de Digimones con un mensaje de éxito
             $mensaje = "Digimon creado exitosamente.";
-            header("Location: show.php?mensaje=" . urlencode($mensaje));
+            header("Location:/Digimon/Administracion/views/digimon/show.php?mensaje=" . urlencode($mensaje));
             exit();
 
         } catch (PDOException $error) {
@@ -59,10 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alta Digimon</title>
-    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Digimon/administracion/assets/css/bootstrap.min.css" rel="stylesheet">
     <style>
     body {
-        background-image: url('../../fondo_CrearDigimones.jpg');
+        background-image: url('fondo_CrearDigimones.jpg');
+        
         background-size: 100% 100%; 
         background-position: center; 
         background-repeat: no-repeat; 

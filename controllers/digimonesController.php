@@ -13,9 +13,9 @@ class DigimonesController {
         try {
             $id = $this->model->insert($arrayDigimon);
             if ($id == null) {
-                header("location:../views/digimon/create.php?error=true");
+                header("location:/Digimon/Administracion/views/digimon/create.php?error=true");
             } else {
-                header("location:../views/digimon/show.php?id=" . $id);
+                header("location:/Digimon/Administracion/views/digimon/show.php?id=" . $id);
             }
             exit();
         } catch (Exception $e) {

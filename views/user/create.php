@@ -39,9 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Obtener la información del usuario y los Digimones asignados
                 $usuario = $userModel->read($usuarioId);
-                $sql = "SELECT d.* FROM digimones d
-                        JOIN DIGIMONES_USUARIO du ON d.id = du.digimon_id
-                        WHERE du.usuario_id = :usuario_id";
+                $sql = "SELECT digimones.*FROM digimones
+                        JOIN DIGIMONES_USUARIO ON digimones.id = DIGIMONES_USUARIO.digimon_id
+                        WHERE DIGIMONES_USUARIO.usuario_id = :usuario_id;";
                 $stmt = $conexion->prepare($sql);
                 $stmt->bindParam(':usuario_id', $usuarioId, PDO::PARAM_INT);
                 $stmt->execute();
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td><?= htmlspecialchars($digimon->defensa) ?></td>
                             <td><?= htmlspecialchars($digimon->nivel) ?></td>
                             <td><?= htmlspecialchars($digimon->tipo) ?></td>
-                            <td><img src="/Digimon/digimones/<?= htmlspecialchars($digimon->nombre) ?>/<?= htmlspecialchars($digimon->imagen) ?>" alt="<?= htmlspecialchars($digimon->nombre) ?>" width="50"></td>
+                            <td><img src="/Digimon/Administracion/digimones/<?= htmlspecialchars($digimon->nombre) ?>/<?= htmlspecialchars($digimon->imagen) ?>" alt="<?= htmlspecialchars($digimon->nombre) ?>" width="50"></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

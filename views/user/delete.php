@@ -27,7 +27,7 @@ $mensaje = $borrado ? 'Usuario eliminado exitosamente.' : 'Error al eliminar el 
     <div class="container">
         <h1 class="mt-5">Eliminar Usuario</h1>
         <div class="alert alert-info"><?= $mensaje ?></div>
-        <a href="listarUsuarios.php" class="btn btn-primary">Volver a la lista de Usuarios</a>
+        <a href="Digimon/Administracion/views/user/list.php" class="btn btn-primary">Volver a la lista de Usuarios</a>
     </div>
 </body>
 </html>

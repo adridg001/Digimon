@@ -17,7 +17,7 @@
           <td>Ver la lista de todos los usuarios</td>
         </tr>
         <tr>
-          <td><button class="btn btn-primary" onclick="location.href='/Digimon/administracion/views/user/create.php'">Dar de alta un Usuario</button></td>
+          <td><button class="btn btn-primary" onclick="location.href='/Digimon/Administracion/views/user/create.php'">Dar de alta un Usuario</button></td>
           <td>Dar de alta a un usuario</td>
         </tr>
         <tr>

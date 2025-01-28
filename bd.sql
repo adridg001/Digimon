@@ -50,7 +50,7 @@ CREATE TABLE `digimones` (
   `imagen_derrota` varchar(255) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `digimones_inv` (
+CREATE TABLE `DIGIMONES_USUARIO` (
   `id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL,
   `digimon_id` int(11) NOT NULL,

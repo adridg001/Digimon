@@ -50,19 +50,19 @@ if (isset($_POST["id"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Definir Evolución</title>
-    <link href="/Digimon/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Digimon/Administracion/assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h1 class="mt-5">Definir Evolución</h1>
         <?php if (!empty($mensaje)): ?>
             <div class="alert alert-info"><?= $mensaje ?></div>
-            <a href="/Digimon/views/digimon/show.php" class="btn btn-primary">Volver a la lista de Digimones</a>
+            <a href="/Digimon/Administracion/views/digimon/show.php" class="btn btn-primary">Volver a la lista de Digimones</a>
         <?php endif; ?>
         <?php if ($digimon): ?>
             <div class="mb-3">
                 <h2><?= htmlspecialchars($digimon->nombre) ?></h2>
-                <img src="/Digimon/digimones/<?= htmlspecialchars($digimon->nombre) ?>/<?= htmlspecialchars($digimon->imagen) ?>" alt="<?= htmlspecialchars($digimon->nombre) ?>" width="100">
+                <img src="/Digimon/Administracion/digimones/<?= htmlspecialchars($digimon->nombre) ?>/<?= htmlspecialchars($digimon->imagen) ?>" alt="<?= htmlspecialchars($digimon->nombre) ?>" width="100">
             </div>
             <form method="post" action="definirEvolucion.php?id=<?= htmlspecialchars($digimon->id) ?>">
                 <input type="hidden" name="id" value="<?= htmlspecialchars($digimon->id) ?>">
@@ -75,6 +75,7 @@ if (isset($_POST["id"])) {
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Definir Evolución</button>
+                <a href="/Digimon/Administracion/views/digimon/show.php" class="btn btn-primary">Volver a la lista de Digimones</a>
             </form>
         <?php endif; ?>
     </div>

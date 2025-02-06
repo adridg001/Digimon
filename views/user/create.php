@@ -37,6 +37,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ]);
                 }
 
+                foreach ($digimones as $digimonId) {
+                     $sql = "INSERT INTO equipo (usuario_id, digimon_id) VALUES (:usuario_id, :digimon_id)";
+                     $stmt = $conexion->prepare($sql);
+                     $stmt->execute([
+                        ":usuario_id" => $usuarioId,
+                         ":digimon_id" => $digimonId
+                     ]);
+                 }
+
                 // Obtener la información del usuario y los Digimones asignados
                 $usuario = $userModel->read($usuarioId);
                 $sql = "SELECT digimones.*FROM digimones

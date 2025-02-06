@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Usuario</title>
-    <link href="/Digimon/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Digimon/Administracion/assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">

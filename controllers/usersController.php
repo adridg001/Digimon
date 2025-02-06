@@ -28,7 +28,7 @@ class UsersController {
        $usuario= $this->ver($id);
        $borrado = $this->model->delete($id);
        $mensaje = $borrado ? 'Usuario eliminado exitosamente.' : 'Error al eliminar el usuario.';
-       $redireccion = "location:/Digimon/views/user/list.php?mensaje=" . urlencode($mensaje);
+       $redireccion = "location:/Digimon/Administracion/views/user/list.php?mensaje=" . urlencode($mensaje);
        header($redireccion);
        exit();
    }

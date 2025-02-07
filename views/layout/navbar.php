@@ -9,41 +9,26 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="far fa-user"></i> Usuarios</a>
+        <i class="fa-solid fa-user fa-bounce"></i> Usuarios</a>
         <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a class="dropdown-item" href="index.php?tabla=user&accion=crear">Añadir</a></li>
-          <li><a class="dropdown-item" href="index.php?tabla=user&accion=listar">Listar </a></li>
-          <li><a class="dropdown-item" href="index.php?tabla=user&accion=buscar">Buscar </a></li>
+          <li><a class="dropdown-item" href="/Digimon/Administracion/views/user/create.php">Añadir</a></li>
+          <li><a class="dropdown-item" href="/Digimon/Administracion/views/user/list.php">Listar </a></li>
+          <li><a class="dropdown-item" href="/Digimon/Administracion/views/user/search.php">Buscar </a></li>
         </ul>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="far fa-user"></i> Clientes</a>
+        <i class="fa-solid fa-dragon fa-shake"></i> Digimones</a>
         <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a class="dropdown-item" href="index.php?tabla=client&accion=crear">Añadir</a></li>
-          <li><a class="dropdown-item" href="index.php?tabla=client&accion=listar">Listar </a></li>
-          <li><a class="dropdown-item" href="index.php?tabla=client&accion=buscar">Buscar </a></li>
-        </ul>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fas fa-project-diagram"></i> Proyectos</a>
-        <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a class="dropdown-item" href="index.php?tabla=project&accion=crear">Añadir</a></li>
-          <li><a class="dropdown-item" href="index.php?tabla=project&accion=buscar">Buscar </a></li>
-        </ul>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fas fa-tasks"></i> Mis Tareas</a>
-        <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a class="dropdown-item" href="index.php?tabla=task&accion=buscar">Buscar </a></li>
+          <li><a class="dropdown-item" href="/Digimon/Administracion/views/digimon/create.php">Añadir</a></li>
+          <li><a class="dropdown-item" href="/Digimon/Administracion/views/digimon/show.php">Listar </a></li>
+          <li><a class="dropdown-item" href="/Digimon/Administracion/views/digimon/search.php">Buscar </a></li>
         </ul>
       </li>
     </ul>
 
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-      <span>MAS OPCIONES</span>
+      <span>Se vienen cositas</span>
       <a class="link-secondary" href="#" aria-label="Add a new report">
         <span data-feather="plus-circle"></span>
       </a>
@@ -52,7 +37,8 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
           <span data-feather="file-text"></span>
-          Ejemplo Mas Opciones
+          Estamos trabajando en ello...
+          Pronto habrán mas opciones :)
         </a>
       </li>
     </ul>

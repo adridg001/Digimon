@@ -48,7 +48,7 @@ if (isset($_GET['id'])) {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
         }
     </style>

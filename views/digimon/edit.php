@@ -56,21 +56,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-image: url('../../assets/images/fondo_CrearDigimones.jpg');
-            background-size: 100% 100%; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            min-height: 100vh; 
-            margin: 0; 
-            padding: 0; 
-            overflow-x: hidden; 
+            background-image: url('../../assets/img/modificar.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.8); 
-            border-radius: 15px; 
-            padding: 20px; 
-            margin: 10px auto; 
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px auto;
             max-width: 1200px;
         }
     </style>

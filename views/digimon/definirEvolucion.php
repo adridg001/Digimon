@@ -53,7 +53,7 @@ if (isset($_POST["id"])) {
     <link href="/Digimon/Administracion/assets/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-image: url('/Digimon/Administracion/assets/img/image_1.jpg');
+            background-image: url('/Digimon/Administracion/assets/img/image_1.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -63,7 +63,7 @@ if (isset($_POST["id"])) {
             align-items: center;
         }
         .container {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.89);
             padding: 20px;
             border-radius: 10px;
             max-width: 600px;

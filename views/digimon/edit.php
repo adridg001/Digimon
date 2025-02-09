@@ -1,6 +1,5 @@
 <?php
-require_once '../../config/db.php'; // Ajusta la ruta según la estructura de tu proyecto
-
+require_once '../../config/db.php';
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = (int) $_GET['id'];
     $conexion = db::conexion();
@@ -115,6 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Modificar</button>
+                <a href="show.php" class="btn btn-secondary">Volver a la lista de Digimones</a>
             </form>
         <?php elseif (!$digimon): ?>
             <p>No se encontró el Digimon.</p>

@@ -19,6 +19,25 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Usuarios</title>
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/Digimon/Administracion/assets/img/lista.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.97);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">

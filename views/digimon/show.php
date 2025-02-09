@@ -21,7 +21,7 @@ try {
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
     <style>
     body {
-        background-image: url('fondo_VerDigimones.webp');
+        background-image: url('/Digimon/Administracion/assets/img/registro3.png');
         background-size: 100% 100%; 
         background-position: center; 
         background-repeat: no-repeat; 

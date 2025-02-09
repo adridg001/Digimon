@@ -33,6 +33,25 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Digimon</title>
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/Digimon/Administracion/assets/img/image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
